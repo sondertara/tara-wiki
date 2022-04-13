@@ -5,14 +5,14 @@ import (
 	"encoding/json"
 	"fmt"
 	_ "github.com/go-sql-driver/mysql"
+	"github.com/sondertara/tara-wiki/app/utils"
+	"github.com/sondertara/tara-wiki/global"
 	"io/ioutil"
 	"log"
 	"os"
 	"path/filepath"
 	"runtime"
 	"strings"
-	"github.com/sondertara/tara-wiki/app/utils"
-	"github.com/sondertara/tara-wiki/global"
 	"time"
 )
 
@@ -21,9 +21,9 @@ var (
 
 	installChan = make(chan int, 1)
 
-	InstallDir = ""
+	InstallDir = "E:\\workspace\\go\\tara-wiki\\install"
 
-	RootDir = ""
+	RootDir = "E:\\workspace\\go\\tara-wiki"
 
 	CopyRight = global.SYSTEM_COPYRIGHT
 )
@@ -142,7 +142,7 @@ func createTable() (err error) {
 	pass := Data.DatabaseConf["pass"]
 	name := Data.DatabaseConf["name"]
 
-	sqlBytes, err := ioutil.ReadFile(filepath.Join(RootDir, "docs/databases/table.sql"))
+	sqlBytes, err := ioutil.ReadFile(filepath.Join(RootDir, "scripts/sql/table.sql"))
 	if err != nil {
 		return err
 	}
@@ -191,7 +191,7 @@ func writeInstallData() (err error) {
 	pass := Data.DatabaseConf["pass"]
 	name := Data.DatabaseConf["name"]
 
-	sqlBytes, err := ioutil.ReadFile(filepath.Join(RootDir, "docs/databases/data.sql"))
+	sqlBytes, err := ioutil.ReadFile(filepath.Join(RootDir, "scripts/sql/data.sql"))
 	if err != nil {
 		return err
 	}

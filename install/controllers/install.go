@@ -106,7 +106,7 @@ func (this *InstallController) Env() {
 	}
 
 	databaseTable := map[string]string{
-		"path":    "docs/databases/table.sql",
+		"path":    "scripts/sql/table.sql",
 		"require": "读/写",
 		"result":  "1",
 	}
@@ -117,7 +117,7 @@ func (this *InstallController) Env() {
 	}
 
 	databaseData := map[string]string{
-		"path":    "docs/databases/data.sql",
+		"path":    "scripts/sql/data.sql",
 		"require": "读/写",
 		"result":  "1",
 	}
